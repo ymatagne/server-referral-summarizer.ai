@@ -1,6 +1,6 @@
 fastapi
 openai
 uvicorn
-gunicorn
+gunicorn==19.7.1
 uvloop
 httptools
