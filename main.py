@@ -10,6 +10,7 @@ app = FastAPI()
 # CORS configuration
 origins = [
     "http://localhost:3000",
+    "https://referral-summarizer-ai.pages.dev"
 ]
 
 app.add_middleware(
