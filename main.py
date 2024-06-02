@@ -1,6 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pdfminer.high_level import extract_text
 from openai import OpenAI
 import os
 import time
