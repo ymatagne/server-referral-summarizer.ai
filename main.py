@@ -36,18 +36,6 @@ def wait_on_run(run, thread):
 async def upload_file(file: UploadFile = File(...)):
     if not file.filename.endswith('.pdf'):
         raise HTTPException(status_code=400, detail="Invalid file format")
-    #content = await file.read()
-    #message_file = client.files.create(
-    #    file=content, purpose="assistants"
-    #)
-    #with open(file.filename, 'rb') as openfile:
-    #    uploaded_file = client.files.create(file=openfile, purpose='assistants')
-
-    #message_file=client.beta.assistants.files.create(assistant_id="asst_HNbmFvEPqx8HVJoJ8nD6SE6B", file_id=uploaded_file.id)
-
-    #content = await file.read()
-
-    #mime_type, _ = mimetypes.guess_type(file.filename)
 
     temp_file_path = f"/tmp/{file.filename}"
     with open(temp_file_path, "wb") as buffer:
@@ -59,8 +47,6 @@ async def upload_file(file: UploadFile = File(...)):
 
     # Remove the temporary file
     os.remove(temp_file_path)
-
-    #uploaded_file = client.files.create(file=content, purpose="assistants")
 
     my_thread = client.beta.threads.create()
     my_thread_message = client.beta.threads.messages.create(
